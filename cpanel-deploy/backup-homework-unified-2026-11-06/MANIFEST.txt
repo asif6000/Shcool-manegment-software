@@ -1,0 +1,22 @@
+Live copies taken from FTP before the Homework & Classwork merge deploy, 2026-11-06.
+9e985e0700d2094234329df4c0e14d99  app/Http/Controllers/TeacherHomeworkController.php
+da0316d2d150c5f8b18446221e925e6d  app/Http/Controllers/StudentPortalHomeworkController.php
+91e151d6ea1e69d59db9be9dfbe59d85  app/Http/Controllers/DashboardController.php
+1f33195ff3c1655770feccb3be1e6534  app/Http/Controllers/ShortcutDashboardController.php
+9f74491af8723e57444d26165917d9ab  app/Models/Homework.php
+0184c92b049ea34e255be7eaf5aefd39  app/Services/HomeworkService.php
+65d2f3a07f3e249b56dec9ba8470999e  app/Services/StudentPortalService.php
+3c0e1f175cf9912a1420121b8e6c61b2  app/Support/LearningPermissions.php
+84c97e333f2640936153b78f18e8ba83  app/Http/Requests/Homework/SaveHomeworkRequest.php
+0c3cb138aa3552a8ec7b48415470f7fd  resources/views/homework/index.blade.php
+58d81c34337afb1adcefb899eec10064  resources/views/homework/partials/list-body.blade.php
+5b6e54dcb4d73d7db552534933b96945  resources/views/homework/partials/detail-body.blade.php
+a4ef1e6ee460d6a7c0d109ca0679bebd  resources/views/homework/partials/form-body.blade.php
+5f6771d695a9621ec80135c972e3cb25  resources/views/layouts/teacher.blade.php
+c625f010b9c74a38ba066b39a036bd1d  resources/views/dashboard/teacher.blade.php
+c4002c79e3d9225b38eb087f21f1d28e  resources/views/partials/sidebar.blade.php
+436071b18342f02c17860ef159ea6f60  resources/views/student/homework/index.blade.php
+07d7902a9c76dbaefabf77ebed2736c2  resources/views/student/homework/show.blade.php
+eb1c0b7c28d0bbb1540ca578012727c9  resources/views/student/dashboard.blade.php
+2e1d47b0419f2e3d6491e32f20cedee2  resources/views/student/materials/index.blade.php
+aec96d3f2aea13ea664d3a2131d9907e  routes/web.php

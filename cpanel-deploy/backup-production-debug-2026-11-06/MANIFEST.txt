@@ -1,0 +1,28 @@
+Live-file backup taken 2026-11-06 before forcing debug mode off for visitors.
+
+Remote path : dream_app/bootstrap/app.php
+Live md5    : 8bf77b0d4e12f0a50a4b882eba9a11d4  (exact copy next to this file)
+New md5     : 684a2596327640dde4e3755947c48fe6  (hash-verified after upload)
+
+Why
+---
+The live .env has APP_ENV=local and APP_DEBUG=true, so every 500 showed the
+full Laravel stack trace (file paths, SQL, bound parameters) to the visitor.
+That is how the RouteNotFoundException page was visible in the browser.
+
+What changed
+------------
+Six lines at the top of bootstrap/app.php: when HTTP_HOST ends with
+dreamrootsmilleniumschool.com, APP_DEBUG is set to false and APP_URL to
+https://dreamrootsmilleniumschool.com in $_SERVER/$_ENV before Laravel loads
+.env. Laravel loads .env immutably, so these values win. Localhost and the
+test suite are untouched and keep APP_DEBUG=true.
+
+This is a safety net, not a replacement for fixing .env. The hosting account
+should still be corrected to APP_ENV=production, APP_DEBUG=false and
+APP_URL=https://dreamrootsmilleniumschool.com.
+
+Restore procedure
+-----------------
+Upload bootstrap/app.php from this directory back to
+dream_app/bootstrap/app.php.

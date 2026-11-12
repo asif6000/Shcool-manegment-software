@@ -1,0 +1,29 @@
+
+  [30;43;1m WARN [39;49;22m Metadata found in doc-comment for method Tests\Unit\YouTubeUrlTest::test_a_youtube_link_yields_its_video_id(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+  [30;43;1m WARN [39;49;22m Metadata found in doc-comment for method Tests\Unit\YouTubeUrlTest::test_a_link_that_is_not_one_playable_video_is_turned_into_nothing(). Metadata in doc-comments is deprecated and will no longer be supported in PHPUnit 12. Update your test code to use attributes instead.
+
+  [30;42;1m PASS [39;49;22m[39m Tests\Feature\PermanentDeleteTest[39m
+  [32;1m✓[39;22m[90m [39m[90ma student delete takes the profile login photo and qr card[39m[90m                                                 [39m [90m22.09s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma student with a bill or attendance is refused instead of cascaded[39m[90m                                          [39m [90m0.97s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma notice row leaves the table instead of being hidden[39m[90m                                                       [39m [90m0.87s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma homework delete takes the answers that belong to it[39m[90m                                                       [39m [90m0.89s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma shared file disappears with its row[39m[90m                                                                       [39m [90m0.93s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma class video row and its upload are both gone[39m[90m                                                              [39m [90m0.83s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma lesson takes its own material rows and files with it[39m[90m                                                      [39m [90m0.85s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma timetable period is removed for good[39m[90m                                                                      [39m [90m0.87s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma guardian delete removes the link but not the student[39m[90m                                                      [39m [90m0.86s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma class that still holds students is refused with a reason[39m[90m                                                  [39m [90m0.88s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma class with nothing in it is deleted with its sections[39m[90m                                                     [39m [90m0.86s[39m  
+  [32;1m✓[39;22m[90m [39m[90man exam that already holds marks cannot be deleted[39m[90m                                                          [39m [90m0.86s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma draft exam with only its papers is deleted wholesale[39m[90m                                                      [39m [90m0.83s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma teacher with leave history is refused but a clean one goes with its login[39m[90m                                 [39m [90m0.92s[39m  
+  [32;1m✓[39;22m[90m [39m[90mfinancial and attendance history refuses the delete button[39m[90m                                                  [39m [90m0.79s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma delete that never carries the typed word is refused[39m[90m                                                       [39m [90m0.96s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma deleted login leaves no token role or session behind[39m[90m                                                      [39m [90m0.94s[39m  
+  [32;1m✓[39;22m[90m [39m[90ma holiday and a subject with nothing hanging off them are deleted[39m[90m                                           [39m [90m0.95s[39m  
+  [32;1m✓[39;22m[90m [39m[90mroles without the permission cannot delete at all[39m[90m                                                           [39m [90m0.95s[39m  
+
+  [90mTests:[39m    [32;1m19 passed[39;22m[90m (94 assertions)[39m
+  [90mDuration:[39m [39m38.69s[39m
+

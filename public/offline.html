@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#2563eb">
+    <title>Offline | DRMS · Dream Roots Millennium School</title>
+    <link rel="icon" href="icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <style>
+        :root {
+            --brand: #2563eb;
+            --brand-dark: #1d4ed8;
+            --ink: #17233c;
+            --muted: #6b7a94;
+            --canvas: #f4f7fc;
+            --surface: #ffffff;
+            --line: #e5ecf6;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            font-family: "Segoe UI", "Noto Sans Bengali", system-ui, -apple-system, Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(59, 130, 246, .12), transparent 34%),
+                radial-gradient(circle at 88% 12%, rgba(14, 165, 233, .1), transparent 30%),
+                var(--canvas);
+        }
+
+        .offline-card {
+            width: 100%;
+            max-width: 520px;
+            padding: 40px 32px;
+            text-align: center;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: 0 18px 50px rgba(15, 34, 66, .08);
+        }
+
+        .offline-logo {
+            display: inline-flex;
+            width: 76px;
+            height: 76px;
+            margin-bottom: 20px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 12px 26px rgba(37, 99, 235, .24);
+        }
+
+        .offline-logo img { width: 100%; height: 100%; display: block; }
+
+        .offline-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 13px;
+            margin-bottom: 14px;
+            color: #b45309;
+            background: #fdf6e6;
+            border-radius: 999px;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .01em;
+        }
+
+        .offline-status .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(1.55rem, 4vw, 2rem);
+            line-height: 1.2;
+            letter-spacing: -.02em;
+        }
+
+        p {
+            margin: 0 auto 8px;
+            max-width: 380px;
+            color: var(--muted);
+            font-size: .94rem;
+            line-height: 1.6;
+        }
+
+        .offline-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 26px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 44px;
+            padding: 0 20px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            font: inherit;
+            font-size: .9rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, #3b82f6, var(--brand-dark));
+            box-shadow: 0 10px 22px rgba(37, 99, 235, .24);
+        }
+
+        .btn-primary:hover { filter: brightness(1.04); }
+
+        .btn-secondary {
+            color: var(--ink);
+            background: #fff;
+            border-color: var(--line);
+        }
+
+        .offline-note {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            font-size: .78rem;
+            color: var(--muted);
+        }
+
+        .offline-note strong { color: var(--ink); }
+
+        .is-online .offline-status {
+            color: #047857;
+            background: #e7f8f1;
+        }
+
+        @media (max-width: 480px) {
+            .offline-card { padding: 30px 20px; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <main class="offline-card" id="offline-card">
+        <span class="offline-logo">
+            <img src="icons/icon-192.png" alt="DRMS">
+        </span>
+
+        <div class="offline-status" role="status" aria-live="polite">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-status-text>No internet connection</span>
+        </div>
+
+        <h1>You are offline</h1>
+        <p>
+            DRMS needs an internet connection for your school records, fees,
+            attendance and results. No private data is stored on this device.
+        </p>
+        <p lang="bn">আপনি এখন অফলাইন আছেন। সংযোগ ফিরে এলে আবার চেষ্টা করুন।</p>
+
+        <div class="offline-actions">
+            <button class="btn btn-primary" type="button" data-retry>
+                Try again
+            </button>
+            <a class="btn btn-secondary" href="./">Open DRMS</a>
+        </div>
+
+        <div class="offline-note">
+            <strong>Your data is safe.</strong>
+            This page is only an offline placeholder. Authenticated pages and
+            school records are never stored in the browser cache.
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var card = document.getElementById('offline-card');
+            var statusText = document.querySelector('[data-status-text]');
+            var retry = document.querySelector('[data-retry]');
+            var reloadTimer = null;
+
+            function markOnline() {
+                if (!navigator.onLine) {
+                    return;
+                }
+
+                card.classList.add('is-online');
+                statusText.textContent = 'Connection restored';
+
+                if (reloadTimer !== null) {
+                    return;
+                }
+
+                var lastReload = 0;
+
+                try {
+                    lastReload = parseInt(sessionStorage.getItem('edunest.offline.reload') || '0', 10);
+                } catch (error) {
+                    /* storage can be unavailable in private mode */
+                }
+
+                if (Date.now() - lastReload < 15000) {
+                    return;
+                }
+
+                reloadTimer = window.setTimeout(function () {
+                    try {
+                        sessionStorage.setItem('edunest.offline.reload', String(Date.now()));
+                    } catch (error) {
+                        /* ignore */
+                    }
+
+                    window.location.reload();
+                }, 1200);
+            }
+
+            function markOffline() {
+                card.classList.remove('is-online');
+                statusText.textContent = 'No internet connection';
+
+                if (reloadTimer !== null) {
+                    window.clearTimeout(reloadTimer);
+                    reloadTimer = null;
+                }
+            }
+
+            retry.addEventListener('click', function () {
+                if (navigator.onLine) {
+                    window.location.reload();
+                    return;
+                }
+
+                retry.disabled = true;
+                retry.textContent = 'Still offline - retrying...';
+                window.setTimeout(function () {
+                    retry.disabled = false;
+                    retry.textContent = 'Try again';
+                }, 1600);
+            });
+
+            window.addEventListener('online', markOnline);
+            window.addEventListener('offline', markOffline);
+        })();
+    </script>
+</body>
+</html>

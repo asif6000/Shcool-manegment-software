@@ -1,0 +1,41 @@
+Live-file backup taken 2026-11-06 before fixing the PWA install warning.
+
+Host        : dreamrootsmilleniumschool.com (cPanel, FTP)
+Public root : public_html
+App root    : dream_app
+
+Files backed up (exact live copies) and their replacements
+----------------------------------------------------------
+public_html/assets/js/pwa.js
+  live md5 64a0836937eb8e328d7e08c29a6e857c -> new md5 b571426b75b36addc36426a88dea9b30
+public_html/sw.js
+  live md5 5127f4af307e08c4ae507e8d494bcc86 -> new md5 a738caf4b58941d74210d8980d1e40c1
+dream_app/config/pwa.php
+  live md5 a64d1333e32a0a9c5fc41ffea629b9e0 -> new md5 ed869426f176da1d723f7ee0a9806aad
+
+All three were re-downloaded after upload and hash-matched.
+
+What changed
+------------
+pwa.js
+- beforeinstallprompt is no longer preventDefaulted when the custom install
+  banner cannot appear (already installed, or the user closed it earlier).
+  Previously the event was captured and never prompted, which is exactly the
+  Chrome warning "preventDefault() was called, but prompt() was never called".
+- Install buttons ([data-pwa-install-trigger]) start hidden and are revealed
+  only when the browser offered an install path (or on iOS, where the manual
+  sheet is the path). No dead Install button.
+- The stored event is consumed once, guarded with try/catch, and dropped on
+  pagehide. prompt() is only ever called from the user's click.
+- The install card is hidden again if no install path exists.
+
+config/pwa.php and sw.js
+- PWA_VERSION and SW_VERSION move 1.3.1 -> 1.3.2 together. The service worker
+  keys its shell cache without the ?v= query string, so a JS change alone
+  would keep being served from cache; the version bump makes installed
+  clients install the new worker and re-precache the new script.
+
+Restore procedure
+-----------------
+Upload the three files in this directory back to their remote paths above,
+then bump the versions again before the next release.

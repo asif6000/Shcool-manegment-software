@@ -1,0 +1,42 @@
+Live-file backup taken 2026-11-06 before overwriting the teacher Classes screen.
+
+Source host : dreamrootsmilleniumschool.com (cPanel, FTP)
+Remote path : dream_app/resources/views/teacher/classes.blade.php
+Local copy  : resources/views/teacher/classes.blade.php
+md5         : 45d8e1b216e2412ce8954e54266b832c
+Size        : 10423 bytes
+
+Why it was replaced
+-------------------
+The live copy still called route('teacher.work.create') inside
+@canany(['homework.view','lessons.view']). That route was removed when the
+Homework and Classwork modules were merged, so GET /admin/my/classes threw
+Symfony RouteNotFoundException (HTTP 500) for every teacher.
+
+Replacement
+-----------
+Local resources/views/teacher/classes.blade.php
+md5 2aac4539e922a85412510e440edfefb6
+Now links the @can('homework.manage') dropdown entry to
+route('teacher.homework.create'). Uploaded by FTP and verified by
+re-downloading the remote file (hash match).
+
+Restore procedure
+-----------------
+Upload this file back to
+dream_app/resources/views/teacher/classes.blade.php
+Only do that together with restoring the old route, otherwise the 500 returns.
+
+Other live-file changes in the same session (additions only, nothing overwritten)
+---------------------------------------------------------------------------------
+dream_app/resources/views/teacher/panels/materials.blade.php
+  md5 95ba5771f1e282a0e3887d89eba8120a
+dream_app/resources/views/teacher/panels/materials-form.blade.php
+  md5 1950b12df1fdf2b69956f46f4b7d15c5
+Both were copied from the local tree and hash-verified after upload.
+
+The live StudyMaterialController still names the panels "classwork" and
+"classwork-form", so today these two files are not loaded. They exist because
+the local controller names "materials" and "materials-form"; uploading them
+first makes that controller swap safe. Nothing has to be restored to go back -
+deleting the two files returns the live tree to its previous state.

@@ -1,0 +1,26 @@
+# This file only matters when the whole application folder is the document
+# root, which is what happens when the project is uploaded straight into
+# public_html. The supported layout keeps the document root on the public/
+# folder, and then this file is never used.
+#
+# It refuses directory listings and blocks the files that must never download.
+Options -Indexes
+
+<FilesMatch "(^\.|^(composer\.(json|lock)|package\.json|package-lock\.json)$|^artisan$|^phpunit\.xml$|\.(log|sql|sqlite)$)">
+    Require all denied
+</FilesMatch>
+
+# If the document root really cannot be changed, uncomment the three lines below
+# on the server so that / serves the app out of public/ without moving the URL
+# bar. This is an internal rewrite, so Apache and LiteSpeed both handle it; a
+# [R=302] redirect would work too but leaves /public/ in every address.
+#
+# Do not use this block: it breaks Laravel's base-path detection, so every clean
+# URL answers 404 (or 500 when the RewriteBase does not match the install folder).
+# Point the domain's Document Root at public/ instead, or move the app above
+# public_html and publish the contents of public/.
+#
+# RewriteEngine On
+# RewriteBase /
+# RewriteRule ^$ public/index.php [L]
+# RewriteRule ^((?!public/).*)$ public/$1 [L,NC]

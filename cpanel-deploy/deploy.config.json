@@ -1,0 +1,46 @@
+{
+  "ftp": {
+    "host": "dreamrootsmilleniumschool.com",
+    "port": 21,
+    "user": "irvrzogs",
+    "pass": "B5mgg95E[KM7g*",
+    "useSsl": false,
+    "passive": true
+  },
+  "paths": {
+    "remoteAppDir": "dream_app",
+    "remotePublicDir": "public_html",
+    "localRootDir": ".."
+  },
+  "patchFiles": [
+    "app/Http/Controllers/AdminFaceController.php",
+    "app/Http/Controllers/AdminSeoController.php",
+    "app/Http/Controllers/LandingController.php",
+    "app/Http/Controllers/PublicNoticeController.php",
+    "app/Http/Controllers/PublicTeacherController.php",
+    "app/Http/Controllers/SitemapController.php",
+    "app/Models/AttendanceEventLog.php",
+    "app/Models/AttendanceRule.php",
+    "app/Services/SeoService.php",
+    "app/Services/SitemapService.php",
+    "database/migrations/2026_11_08_000001_create_seo_settings_table.php",
+    "database/migrations/2026_11_09_000001_create_attendance_rules_table.php",
+    "resources/views/landing.blade.php",
+    "resources/views/admin/attendance/face/index.blade.php",
+    "resources/views/admin/attendance/face/enroll.blade.php",
+    "resources/views/admin/seo/preview.blade.php",
+    "resources/views/admin/seo/settings.blade.php",
+    "resources/views/layouts/public.blade.php",
+    "resources/views/partials/seo-tags.blade.php",
+    "resources/views/public/notices/index.blade.php",
+    "resources/views/public/teachers/index.blade.php",
+    "resources/views/public/teachers/show.blade.php",
+    "resources/views/partials/sidebar.blade.php",
+    "resources/views/attendance/partials/tabs.blade.php",
+    "resources/views/components/icon.blade.php",
+    "routes/web.php",
+    "config/deletions.php",
+    "public/robots.txt",
+    "public/assets/css/landing.css"
+  ]
+}

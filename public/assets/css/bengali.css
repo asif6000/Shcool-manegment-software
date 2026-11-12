@@ -1,0 +1,66 @@
+/* ============================================================
+   Bengali typography layer
+   Loaded after every other stylesheet so Bengali shaping keeps
+   priority over the letter-spacing used on Latin micro-labels.
+   ============================================================ */
+
+/* Noto Sans Bengali, variable 400–700, kept in assets/fonts so the
+   app renders identically offline on XAMPP and on shared hosting.
+   The unicode-range is Bengali-only, so Latin text still resolves to
+   the existing Segoe UI / Inter stack and the English design is
+   unchanged. */
+@font-face {
+    font-family: 'Noto Sans Bengali';
+    font-style: normal;
+    font-weight: 400 700;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url('../fonts/noto-sans-bengali-var.woff2') format('woff2');
+    unicode-range: U+0951-0952, U+0964-0965, U+0980-09FE, U+1CD0, U+1CD2,
+        U+1CD5-1CD6, U+1CD8, U+1CE1, U+1CEA, U+1CED, U+1CF2, U+1CF5-1CF7,
+        U+200C-200D, U+20B9, U+25CC, U+A8F1, U+11DF0-11DF1;
+}
+
+:root {
+    --font-bengali: 'Noto Sans Bengali', 'Hind Siliguri', 'SolaimanLipi', 'Vrinda', 'Shruti', sans-serif;
+    --font-sans: 'Noto Sans Bengali', "Segoe UI", "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --bs-body-font-family: var(--font-sans);
+}
+
+html {
+    font-family: var(--font-sans);
+}
+
+button,
+input,
+select,
+textarea,
+optgroup,
+table {
+    font-family: inherit;
+}
+
+/* Bengali must shape as one grapheme cluster. Any tracking makes the
+   engine advance কার, ফলা, রেফ and the pieces of a যুক্তাক্ষর apart,
+   which detaches them from the base letter. Applied per run, not per
+   glyph: Latin labels are only affected when the page is Bengali. */
+html:lang(bn) *,
+html:lang(bn) *::before,
+html:lang(bn) *::after,
+[lang="bn"],
+[lang="bn"] *::before,
+[lang="bn"] *::after,
+[lang^="bn-"],
+[lang^="bn-"] * {
+    letter-spacing: normal !important;
+    word-spacing: normal;
+    font-kerning: normal;
+    font-feature-settings: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Bengali has stacking vowel signs, so the body needs a little more
+   leading than the Latin default. English pages keep 1.55. */
+html:lang(bn) body {
+    line-height: 1.6;
+}

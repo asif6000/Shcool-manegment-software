@@ -1,0 +1,24 @@
+Live-file backup taken 2026-11-06 before deploying the Study Material form change.
+
+Remote path : dream_app/resources/views/materials/partials/form-body.blade.php
+Live md5    : c75fe5c0695d7ece87ca7f485d5bfffb  (old copy stored next to this file)
+New md5     : 96ec14bd689da2950e0b31b6a499fdff  (hash-verified after upload)
+
+What changed
+------------
+The create form no longer offers "Classwork" as a study-material kind. New
+entries are always Study Material; the screen points to the Homework &
+Classwork page for class work. Existing rows stored with kind=classwork still
+open and save normally, shown with a Classwork badge and an explanatory note.
+
+Why
+---
+Rule 3 of the homework/classwork brief: exactly one place creates classwork,
+so the old second creation path through Study Materials had to go. The live
+StudyMaterialController and model are byte-identical to local, so no PHP
+change accompanies this view.
+
+Restore procedure
+-----------------
+Upload resources/views/materials/partials/form-body.blade.php from this
+backup directory back to the same remote path.

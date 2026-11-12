@@ -1,0 +1,21 @@
+{
+    "_comment": "Hikvision DS-K1A340FWX Local Windows Bridge Configuration",
+    "cloud_api": {
+        "url": "https://dreamrootsmilleniumschool.com/api/v1/attendance/events",
+        "device_id": 1,
+        "device_secret": "YOUR_DEVICE_SECRET_FROM_ADMIN_PANEL"
+    },
+    "local_device": {
+        "ip": "192.168.1.100",
+        "port": 80,
+        "username": "admin",
+        "password": "YOUR_HIKVISION_ADMIN_PASSWORD",
+        "timeout_seconds": 5
+    },
+    "agent_settings": {
+        "poll_interval_seconds": 10,
+        "batch_size": 30,
+        "state_file": "bridge-state.json",
+        "log_file": "bridge.log"
+    }
+}

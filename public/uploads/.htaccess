@@ -1,0 +1,13 @@
+# Uploaded files live here. Never execute scripts from this directory.
+<FilesMatch "\.(php|phtml|phar|phps|cgi|pl|py|sh)$">
+    Require all denied
+</FilesMatch>
+Options -ExecCGI -Indexes
+
+# These directories are served only by an authorised controller, which streams
+# the file after checking the viewer may see the record. A direct URL would
+# bypass that check, so Apache must never hand them out.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(admissions|homework|submissions|materials|lessons)(/|$) - [F,NC,L]
+</IfModule>

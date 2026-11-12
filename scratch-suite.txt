@@ -1,0 +1,131 @@
+﻿PHPUnit 11.5.57 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+Configuration: C:\xampp\htdocs\dream\phpunit.xml
+
+Time: 26:18.177, Memory: 110.00 MB
+
+There were 5 failures:
+
+1) Tests\Feature\AcademicOperationsTest::test_assigning_homework_reaches_only_the_target_class
+Session has unexpected errors: 
+
+{
+    "default": [
+        "Choose the class, section and subject this work is for.",
+        "The class id field is required.",
+        "The subject id field is required.",
+        "The work type field is required."
+    ]
+}
+Failed asserting that true is false.
+
+The following errors occurred during the last request:
+
+Choose the class, section and subject this work is for.
+The class id field is required.
+The subject id field is required.
+The work type field is required.
+
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1695
+C:\xampp\htdocs\dream\tests\Feature\AcademicOperationsTest.php:251
+
+2) Tests\Feature\AcademicOperationsTest::test_homework_validation_and_the_bursary_boundary
+Session has unexpected errors: 
+
+{
+    "default": [
+        "Choose the class, section and subject this work is for.",
+        "The class id field is required.",
+        "The subject id field is required.",
+        "The work type field is required."
+    ]
+}
+Failed asserting that true is false.
+
+The following errors occurred during the last request:
+
+Choose the class, section and subject this work is for.
+The class id field is required.
+The subject id field is required.
+The work type field is required.
+
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1695
+C:\xampp\htdocs\dream\tests\Feature\AcademicOperationsTest.php:310
+
+3) Tests\Feature\AcademicOperationsTest::test_a_draft_stays_hidden_until_it_is_published
+Session has unexpected errors: 
+
+{
+    "default": [
+        "Choose the class, section and subject this work is for.",
+        "The class id field is required.",
+        "The subject id field is required.",
+        "The work type field is required."
+    ]
+}
+Failed asserting that true is false.
+
+The following errors occurred during the last request:
+
+Choose the class, section and subject this work is for.
+The class id field is required.
+The subject id field is required.
+The work type field is required.
+
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1695
+C:\xampp\htdocs\dream\tests\Feature\AcademicOperationsTest.php:749
+
+4) Tests\Feature\CrossPortalWorkflowTest::test_one_record_set_stays_in_sync_across_the_admin_teacher_student_and_accountant_portals
+Session has unexpected errors: 
+
+{
+    "default": [
+        "Choose the class, section and subject this work is for.",
+        "The class id field is required.",
+        "The subject id field is required.",
+        "The work type field is required."
+    ]
+}
+Failed asserting that true is false.
+
+The following errors occurred during the last request:
+
+Choose the class, section and subject this work is for.
+The class id field is required.
+The subject id field is required.
+The work type field is required.
+
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1695
+C:\xampp\htdocs\dream\tests\Feature\CrossPortalWorkflowTest.php:196
+
+5) Tests\Feature\CrossPortalWorkflowTest::test_teacher_scope_and_student_isolation_hold_across_portals
+Session has unexpected errors: 
+
+{
+    "default": [
+        "Choose the class, section and subject this work is for.",
+        "The class id field is required.",
+        "The subject id field is required.",
+        "The work type field is required."
+    ]
+}
+Failed asserting that true is false.
+
+The following errors occurred during the last request:
+
+Choose the class, section and subject this work is for.
+The class id field is required.
+The subject id field is required.
+The work type field is required.
+
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponseAssert.php:45
+C:\xampp\htdocs\dream\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:1695
+C:\xampp\htdocs\dream\tests\Feature\CrossPortalWorkflowTest.php:654
+
+FAILURES!
+Tests: 640, Assertions: 4454, Failures: 5, PHPUnit Deprecations: 2.

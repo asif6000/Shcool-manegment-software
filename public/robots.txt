@@ -1,0 +1,47 @@
+# Robots.txt for Dream Roots Millennium School
+# Last updated: 2026-11-08
+
+User-agent: *
+Allow: /
+Allow: /notices/
+Allow: /teachers/
+Allow: /results/
+Allow: /routines/
+Allow: /website/live/
+
+# Disallow private dashboards and authenticated areas
+Disallow: /admin/
+Disallow: /student/
+Disallow: /teacher/
+Disallow: /guardian/
+Disallow: /accountant/
+Disallow: /admissions/
+Disallow: /login/
+Disallow: /register/
+Disallow: /password/
+Disallow: /notifications/
+Disallow: /api/
+Disallow: /logout/
+Disallow: /*?token=*
+Disallow: /*_token=*
+
+# Allow CSS, JS, and images for proper rendering
+Allow: /assets/
+Allow: /icons/
+Allow: /branding/
+Allow: /uploads/
+Allow: *.css$
+Allow: *.js$
+Allow: *.png$
+Allow: *.jpg$
+Allow: *.jpeg$
+Allow: *.gif$
+Allow: *.svg$
+Allow: *.webp$
+Allow: *.woff2$
+
+# Sitemap location
+Sitemap: https://dreamrootsmilleniumschool.com/sitemap.xml
+
+# Crawl-delay for polite crawling (optional)
+# Crawl-delay: 10

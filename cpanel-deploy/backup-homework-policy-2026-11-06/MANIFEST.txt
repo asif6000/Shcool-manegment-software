@@ -1,0 +1,37 @@
+Live-file backup taken 2026-11-06 before deploying the homework custody fix.
+
+Host        : dreamrootsmilleniumschool.com (cPanel, FTP)
+Remote root : dream_app
+
+Files backed up (exact live copies)
+-----------------------------------
+app/Policies/HomeworkPolicy.php                     md5 5468d9a0ac02c94690f739ca0e9672c6
+app/Http/Controllers/TeacherHomeworkController.php  md5 648321ebb028f44400810c6bac528465
+
+Files deployed in their place
+-----------------------------
+app/Policies/HomeworkPolicy.php                     md5 fb59aee7684f5e5e5f5173572cd20f1e
+app/Http/Controllers/TeacherHomeworkController.php  md5 71025b7414a59101b76a664ec0baaf7c
+Both re-downloaded after upload and hash-matched.
+
+What changed
+------------
+1. HomeworkPolicy: custody now follows the record, not the timetable.
+   view/update/delete/publish/review allow a teacher when the account wrote
+   the row (created_by) even after the office moves the period to a colleague
+   or removes it; otherwise the old assignment check (inScope + isMine) still
+   applies. The role guard (teacher only, never school_admin/principal/
+   super_admin) is unchanged.
+2. TeacherHomeworkController::update: saving a record under the period it
+   already carries is exempt from the "you must hold this period" re-check;
+   naming a different period still requires a current assignment.
+
+Restore procedure
+-----------------
+Upload the two backed-up files back to the same remote paths.
+
+Dependency
+----------
+These files read homework.category like the already-live models. The live
+database irvrzogs_drms2026 still needs
+database/sql/production_homework_classwork_unified_mariadb.sql (owner step).

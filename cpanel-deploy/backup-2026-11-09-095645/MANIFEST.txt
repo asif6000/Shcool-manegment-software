@@ -1,0 +1,25 @@
+﻿Backup taken: 2026-11-09 09:56:45
+Target Server: dreamrootsmilleniumschool.com
+Files downloaded from live environment:
+
+(new file)  app/Http/Controllers/AdminFaceController.php
+(new file)  app/Http/Controllers/AdminSeoController.php
+2cfea70a8304e5d0af23281cd361eae5  app/Http/Controllers/LandingController.php
+3066145c90441e799296f952b0645ef8  app/Http/Controllers/PublicNoticeController.php
+12b6e0119bb12cfaf2385e60803ab215  app/Http/Controllers/PublicTeacherController.php
+(new file)  app/Http/Controllers/SitemapController.php
+(new file)  app/Models/AttendanceEventLog.php
+(new file)  app/Models/AttendanceRule.php
+(new file)  app/Services/SeoService.php
+(new file)  app/Services/SitemapService.php
+(new file)  database/migrations/2026_11_08_000001_create_seo_settings_table.php
+(new file)  database/migrations/2026_11_09_000001_create_attendance_rules_table.php
+c3cc9b4768589ad71dd4f5d0636f76d9  resources/views/landing.blade.php
+(new file)  resources/views/admin/attendance/face/index.blade.php
+(new file)  resources/views/admin/seo/preview.blade.php
+(new file)  resources/views/admin/seo/settings.blade.php
+3b4df755d0715ce2c787b8005f0e26b7  resources/views/layouts/public.blade.php
+(new file)  resources/views/partials/seo-tags.blade.php
+7e6b906ece7c28b8b9d608d9c7aa9bb5  resources/views/public/notices/index.blade.php
+669f1cad34d0535525a5c74189d3bcff  routes/web.php
+b6216d61c03e6ce0c9aea6ca7808f7ca  public/robots.txt
